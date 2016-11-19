@@ -1,0 +1,8 @@
+{
+"levelName" : "NewLevel1",
+"levelDisplayName" : "This is a new level",
+"levelNumber" : "1",
+"levelGuidType" : "hierarchy",
+"levelGuid" : "12",
+"levelAssetId" : "10000015"
+}

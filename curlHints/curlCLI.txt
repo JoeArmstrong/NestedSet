@@ -1,0 +1,39 @@
+#
+# After loading the DB you need to get the levelGuids to use below - new GUID values are created each time
+# the DB is re-loaded.
+#
+#
+# POST
+#
+curl -d @postCurlInput.json --header "Content-Type: application/json" -vX POST http://localhost:8080/hierarchy/<LevelGuid of intended parent>
+
+#
+# PUT
+#
+curl -d @putCurlInput.json --header "Content-Type: application/json" -vX PUT http://localhost:8080/hierarchy/<LevelGuid of target level to update> 
+
+#
+# PATCH
+#
+curl -d @patchCurlInput.json --header "Content-Type: application/json" -vX PATCH http://localhost:8080/hierarchy/<LevelGuid of target level to move> 
+
+#
+# DELETE
+#
+curl -vX DELETE http://localhost:8080/hierarchy/<LevelGuid of target level to move>  --header "Content-Type: application/json
+
+#
+# GET parent view - levelid is a level "short name" in this case (same "short name" as Developer Service)
+#
+curl http://localhost:8080/hierarchy?levelid=Security\&viewedFrom=parent
+
+#
+# GET child view - levelid is an asssetId in this case
+#
+curl http://localhost:8080/hierarchy?levelid=<assetId of a target level>\&viewedFrom=child
+
+#
+# GET of a set of levels modified after (notice URL change from /hierarchy to /resources - URL encoding of date string in format "yyy-mm-dd hh:mm:ss"
+#
+curl http://localhost:8080/resources?modifiedafter=2016-11-10%2008%3A57%3A00%0A
+
